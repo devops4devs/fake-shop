@@ -12,18 +12,40 @@ jobs:
       - name: Obter o código do projeto
         uses: actions/checkout@v4
 
+<<<<<<< HEAD
+     - name: Autenticar no Docker Hub
+       uses: docker/login-action@v3
+       with:
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+   
+     - name: Construção e Envio da Imagem Docker
+       uses: docker/build-push-action@v6
+       with:
+            context: ./src
+            file: .src/Dockerfile
+            tags:
+               lfogaca34/fake-shop:latest
+               lfogaca34/fake-shop:v${{github.run_number}}  
+            push: true
+            tags: user/app:latest
+=======
       - name: Autenticar no Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+>>>>>>> e1cfcaf7cd9da7a8190045cef8ccbd8b4787a94f
 
+<<<<<<< HEAD
+=======
       - name: Construção da Imagem Docker
         run: echo "Executando o comando Docker build"
 
       - name: Envio da Imagem Docker
         run: echo "Executando o comando Docker push"
 
+>>>>>>> e1cfcaf7cd9da7a8190045cef8ccbd8b4787a94f
   cd:
     runs-on: ubuntu-latest
     needs: [ci]
