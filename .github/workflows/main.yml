@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./src
-          file: .src/Dockerfile
+          file: ./src/Dockerfile
           tags: |
             lfogaca34/fake-shop:latest
             lfogaca34/fake-shop:v${{ github.run_number }}
